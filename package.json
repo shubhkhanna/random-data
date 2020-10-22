@@ -1,0 +1,35 @@
+{
+  "name": "random-data",
+  "version": "1.0.0",
+  "description": "\"REST API for random-data built with Node.js\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubhkhanna/random-data.git"
+  },
+  "keywords": [
+    "facts",
+    "riddles",
+    "quotes"
+  ],
+  "author": "Shubh Khanna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shubhkhanna/random-data/issues"
+  },
+  "homepage": "https://github.com/shubhkhanna/random-data#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "config": "^3.3.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.9",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
