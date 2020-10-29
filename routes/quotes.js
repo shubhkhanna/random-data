@@ -2,14 +2,14 @@ const express = require("express");
 
 const router = express.Router(); //Define routes
 const mongoose = require("mongoose");
-const Riddle = require("../models/riddle");
+const Quote = require("../models/quote");
 
 router.get("/", (req, res, next) => {
-  // GET A RANDOMN Riddle
-  Riddle.countDocuments().exec((err, count) => {
+  // GET A RANDOMN Quote
+  Quote.countDocuments().exec((err, count) => {
     var random = Math.floor(Math.random() * count);
 
-    Riddle.findOne()
+    Quote.findOne()
       .skip(random)
       .exec()
       .then((result) => {
@@ -23,21 +23,21 @@ router.get("/", (req, res, next) => {
   });
 });
 
-//POST a Riddle
+//POST a Quote
 router.post("/", (req, res, next) => {
-  //create instance of that riddle
-  const riddle = new Riddle({
+  //create instance of that quote
+  const quote = new Quote({
     _id: new mongoose.Types.ObjectId(),
-    question: req.body.question,
-    answer: req.body.answer,
+    quotes: req.body.quotes,
+    writer: req.body.writer,
   });
-  riddle
+  quote
     .save()
     .then((result) => {
       console.log(result);
       res.status(200).json({
         message: "POST request works",
-        createdRiddle: result,
+        createdQuote: result,
       });
     })
     .catch((err) => {
@@ -48,10 +48,10 @@ router.post("/", (req, res, next) => {
     });
 });
 
-//Delete a particular riddle
-router.delete("/:riddlesId", (req, res, next) => {
-  const id = req.params.riddlesId;
-  Riddle.remove({ _id: id })
+//Delete a particular quote
+router.delete("/:quotesId", (req, res, next) => {
+  const id = req.params.quotesId;
+  Quote.remove({ _id: id })
     .exec()
     .then((result) => {
       res.status(200).json(result);

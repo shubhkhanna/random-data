@@ -9,6 +9,7 @@ const port = process.env.PORT || 8080;
 
 const factRoute = require("./routes/facts");
 const riddleRoute = require("./routes/riddles");
+const quoteRoute = require("./routes/quotes");
 
 http.createServer();
 dotenv.config();
@@ -45,6 +46,7 @@ app.get("/", (req, res) => {
 
 app.use("/facts", factRoute);
 app.use("/riddles", riddleRoute);
+app.use("/quotes", quoteRoute);
 
 app.listen(port, () => {
   console.log(`Server started at port ${port}`);
